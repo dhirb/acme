@@ -5,26 +5,42 @@
 1. GET
   * Retrieves the patient information given the patient ID
   * Example usage
-  `curl -X GET http://localhost:5000/acme/patient/1`
+  ```
+  curl -X GET http://localhost:5000/acme/patient/1
+  ```
   * Example output
   ```
   {
-  "patient": {
-    "age": "25", 
-    "fullname": "Yuen Lye Yeap", 
-    "id": 1
+    "patient": {
+      "age": "25", 
+      "fullname": "Yuen Lye Yeap", 
+      "id": 1
+    }
   }
-}
 ```
+  * Example error message if patient does not exist
+  ```
+  {
+    "error": "Patient not found"
+  }
+  ```
   
 2. POST
   * Creates a new patient
   * Example usage
-  `curl -i -H "Content-Type: application/json" -X POST -d "{"""fullname""":"""Yuen Lye Yeap""","""age""":25}" http://localhost:5000/acme/patient`
+  ```
+  curl -i -H "Content-Type: application/json" -X POST -d "{"""fullname""":"""Yuen Lye Yeap""","""age""":25}" http://localhost:5000/acme/patient
+  ```
   * Example output
   ```
   {
       "id": 1
+  }
+  ```
+  * Example error message if patient creation fails
+  ```
+  {
+    "error": "Cannot create new patient"
   }
   ```
 
